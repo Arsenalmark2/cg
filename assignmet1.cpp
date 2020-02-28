@@ -1,5 +1,6 @@
 //assignment 1
 //Pattern
+//g++ main.c -lglut -lGL -lGLEW -lGLU -o OpenGLExample
 #include <GL/freeglut.h>
 #include <GL/gl.h>
 #include <math.h>
