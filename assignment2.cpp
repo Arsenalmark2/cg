@@ -1,5 +1,5 @@
 //assignment 2
-
+// g++ main.c -lglut -lGL -lGLEW -lGLU -o example
 #include <GL/freeglut.h>
 #include <GL/gl.h>
 #include <math.h>
