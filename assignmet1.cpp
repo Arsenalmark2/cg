@@ -84,6 +84,52 @@ float DDA(float x1,float y1,float x2,float y2)
 		putpoint((int)round(x1),(int)round(y1));
 	}
 }
+void bresenham(int x1,int y1,int x2,int y2)
+{
+	int dx, dy, i, p;
+	int incx, incy, inc1, inc2;
+	int x,y;
+	dx = x2-x1;
+	dy = y2-y1;
+	if (dx < 0) dx = -dx;
+	if (dy < 0) dy = -dy;
+	incx = 1;
+	if (x2 < x1) incx = -1;
+	incy = 1;
+	if (y2 < y1) incy = -1;
+	x = x1; y = y1;
+	if (dx > dy) {
+		draw_pixel(x, y);
+		p = 2 * dy-dx;
+		inc1 = 2*(dy-dx);
+		inc2 = 2*dy;
+		for (i=0; i<dx; i++) {
+			if (p > 0) {
+				y += incy;
+				p += inc1;
+			}
+			else
+				p += inc2;
+			x += incx;
+			draw_pixel(x, y);
+		}
+	} else {
+		draw_pixel(x, y);
+		p = 2*dx-dy;
+		inc1 = 2*(dx-dy);
+		inc2 = 2*dx;
+		for (i=0; i<dy; i++) {
+			if (p > 0) {
+				x += incx;
+				p += inc1;
+			}
+			else
+				p += inc2;
+			y += incy;
+			draw_pixel(x, y);
+	}
+}
+}
 int main(int argc, char** argv)
 {
     glutInit(&argc, argv);
